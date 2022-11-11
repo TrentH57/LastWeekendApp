@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user.first_name}} Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_style.css') }}">
+
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="title">
+                <h1>Last Weekend</h1>
+            </div>
+            <div id="navbar">
+                <div id="createpost"><h5><a href="/createpost">CREATE POST</a></h5></div>
+                <div><h2>Your Scenes:</h2></div>
+                <div id="scenes">
+                    <h3>---------------scene feature in development-----------------</h3>
+                </div>
+                <a href="/explore">Explore</a>
+                <div id="searchbox">
+                    <form>
+                    <input id="search" name="search" placeholder="in development">
+                    <button id="searchsubmit" type="submit">Search</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="profile">
+                <h1>{{user.first_name}}</h1>
+                <div id="actions"><a href="/logout">logout</a> | <a href="/editprofile">edit profile</a></div>
+                <div id="profile_div">
+                    <img id="profile_pic" src="{{user.profile_pic}}" alt="profile pic" >
+                </div>
+                <p id="biography">{{user.biography}}</p>
+            </div>
+            <div id="postContainer">
+                {% if user.post_list|length > 0 %}
+                    {% for post in user.post_list %}
+                        <div class="post">
+                            <div class="post_pic_div">
+                                <img class="post_pic" src="{{post.post_pic}}" alt="post pic" >
+                            </div>
+                            <div class="captiondiv">
+                                <p class="caption">{{post.caption}}</p>
+                            </div>
+                            <div class="optiondiv">
+                                <div class="optionoption">
+                                    <img class="commenticon" src="https://i.ibb.co/b1Yjn86/comments.png" alt="comment">
+                                    <div class="commentslikes">
+                                        <a class="like">Like</a> | <a class="addcomment">Add Comment</a> | <a class="viewcomments">View Comments</a>
+                                        <div class="comments">
+                                            <h5>Comments:</h5>
+                                            {% for comment in post.comment_list %}
+                                            <p>{{comment.content}} </p>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="createcomment">
+                                            <form action="/createcomment/{{post.id}}" method="post">
+                                                <label for="comment">What would you like to share?</label>
+                                                <input class="commentinput" type="textarea" name="comment" placeholder="...">
+                                                <input class="submitcomment" type="submit" value="Share Comment">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="optionoption">
+                                    <img class="optionicon" src="https://i.ibb.co/2kScQ3W/options.png"  alt="options">
+                                    <div class="options"><a href="/editpost/{{post.id}}">Edit</a> | <a href="/deletepost/{{post.id}}">Delete</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% else %}
+                        <h1>You have not posted anything yet</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    overflow-y: hidden;
+}
+
+#container{
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    background-image: url("https://i.ibb.co/hL5924J/mountains.jpg");
+    background-size: cover;
+    background-position: top;
+
+}
+#header{
+    /* background-color: grey; */
+    height: 80px;
+}
+#title{
+    height: 40px;
+    text-align: center;
+}
+#navbar{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#createpost{
+    display: flex;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+    
+}
+#scenes{
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 400px;
+    margin-right: 10px;
+}
+.scene{
+    background-color: transparent;
+}
+#searchbox{
+    display: flex;
+    align-items: center;
+}
+#content{
+    display: flex;
+    /* background-color: lightslategray; */
+    padding: 10px;
+}
+#profile{
+    /* background-color: antiquewhite; */
+    backdrop-filter: blur(15px);
+    width: 200px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    height: fit-content;
+}
+#actions{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profile_pic{
+    width: 100%;
+    display: block
+}
+#profile_div{
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#biography{
+    width: 90%;
+}
+#postContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    max-height: 42vw;
+    overflow-y: scroll;
+}
+.post{
+    /* background-color: rgb(146, 240, 151); */
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    height: min-content;
+    margin: 20px;
+    backdrop-filter: blur(15px);
+    padding-top: 25px;
+}
+.post_pic_div{
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+
+}
+.post_pic{
+    width: auto;
+    height: 100%;
+    
+}
+.captiondiv{
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.optiondiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.optionoption{
+    display: flex;
+}
+.optionicon{
+    height: 20px;
+    width: auto;
+}
+.options{
+    display: none;
+}
+.optionicon:hover + .options{
+    display: block;
+}
+.options:hover{
+    display: block;
+}
+.commenticon{
+    height: 20px;
+    width: auto;
+
+}
+.commentslikes{
+    display: none;
+}
+.commenticon:hover + .commentslikes{
+    display: block;
+}
+.comments{
+    display: none;
+}
+.commentslikes:hover{
+    display:block;
+}
+.viewcomments:hover ~ .comments{
+    display: block;
+    width: 250px;
+    text-align: start;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+.comments:hover{
+    display: block;
+    width: 250px;
+    text-align: start;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+.createcomment{
+    display: none;
+}
+.addcomment:hover ~ .createcomment{
+    display: flex;
+    align-content: center;
+
+}
+.createcomment:hover{
+    display: flex;
+    align-content: center;
+
+}
+.commentinput{
+    display: block;
+    background-color: transparent;
+    overflow-y: scroll;
+    width: 250px;
+    height: 50px;
+}
+.submitcomment{
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+  /* Track */::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

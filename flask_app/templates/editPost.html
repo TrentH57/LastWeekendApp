@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='createPost_style.css') }}">
+
+</head>
+<body>
+    <div id="container">
+        <div id="wrapper">
+            <div id="createpost">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div id="image">
+                    <img src="{{post.post_pic}}" height="300px" width="auto">
+                </div>
+                <form action="/process_edit_post/{{post.id}}" method="post">
+                    <input type="text" name="caption" value = '{{post.caption}}'>
+                    <button type="submit">Apply Changes!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

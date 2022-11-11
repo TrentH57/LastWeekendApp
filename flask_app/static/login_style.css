@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    overflow-y: hidden;
+}
+#container{
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    background-image: url("https://i.ibb.co/hL5924J/mountains.jpg");
+    background-size: cover;
+    background-position: top;
+}
+p{
+    color: red;
+}
+label, input{
+    display: block;
+}
+input{
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+#wrapper{
+    display: flex;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+}
+.flash{
+    color: red;
+}
+
+button{
+    background-color: transparent;
+    border: solid black 1px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px;
+    margin-bottom: 10px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}

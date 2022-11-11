@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='registration_style.css') }}">
+
+</head>
+<body>
+    <div id="container">
+        <div id="wrapper">
+            <div>
+                <h1>Register</h1>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="/register" method="post" enctype="multipart/form-data">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email">
+                    <label for="biography">Bio:</label>
+                    <input type="text" name="biography">
+                    <label for="profile_pic">Profile Pic:</label>
+                    <input type="file" name="profile_pic">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+                    <label for="confirm password">Confirm Password:</label>
+                    <input type="password" name="confirm password">
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

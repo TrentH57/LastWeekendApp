@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>explore</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='explore_style.css') }}">
+
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="loggedin">
+                <h4>Logged in as {{user.first_name}}</h4>
+                <a href="/dashboard">Your Dashboard</a>
+                <a href="/logout">Logout</a>
+            </div>
+            <div id="title">
+                <h1>Bersirkr</h1>
+            </div>
+            <div id="navbar">
+                <div id="createpost"><h5><a href="/createpost">CREATE POST</a></h5></div>
+                <div><h2>Your Scenes:</h2></div>
+                <div id="scenes">
+                    <h3>---------------scene feature in development-----------------</h3>
+                </div>
+                <div id="searchbox">
+                    <form>
+                    <input id="search" name="search" placeholder="in development">
+                    <button id="searchsubmit" type="submit">Search</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="postContainer">
+                {% if allposts|length > 0 %}
+                {% for post in allposts %}
+                    <div class="post">
+                        <div class="post_pic_div">
+                            <img class="post_pic" src="{{post.post_pic}}" alt="post pic" >
+                        </div>
+                        <div class="captiondiv">
+                            <p class="caption">{{post.caption}}</p>
+                        </div>
+                        <div class="optiondiv">
+                            <div class="optionoption">
+                                <img class="commenticon" src="https://i.ibb.co/b1Yjn86/comments.png" alt="comment">
+                                <div class="commentslikes">
+                                    <a class="like">Like</a> | <a class="addcomment">Add Comment</a> | <a class="viewcomments">View Comments</a>
+                                    <div class="comments">
+                                        <h5>Comments:</h5>
+                                        {% for comment in post.comment_list %}
+                                        <p>{{comment.content}} </p>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="createcomment">
+                                        <form action="/createcommentexplore/{{post.id}}" method="post">
+                                            <label for="comment">What would you like to share?</label>
+                                            <input class="commentinput" type="textarea" name="comment" placeholder="...">
+                                            <input class="submitcomment" type="submit" value="Share Comment">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <h1>You have not posted anything yet</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

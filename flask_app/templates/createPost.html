@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='createPost_style.css') }}">
+
+</head>
+<body>
+    <div id="container">
+        <div id="wrapper">
+            <div id="createpost">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="/processpost" method="post" enctype="multipart/form-data">
+                    <label for="post_pic">Post Pic:</label>
+                    <input id = "choosefile" type="file" name="post_pic">
+                    <label for="caption">Caption:</label>
+                    <input type="text" name="caption">
+                    <button type="submit">Create Post!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

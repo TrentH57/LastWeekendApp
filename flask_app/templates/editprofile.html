@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='editprofile_style.css') }}">
+
+</head>
+<body>
+    <div id="container">
+        <div id="wrapper">
+            <div>
+                <h1>Edit Profile</h1>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="/processeditprofile" method="post" enctype="multipart/form-data">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" value="{{user.first_name}}">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" value="{{user.last_name}}">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" value="{{user.email}}">
+                    <label for="biography">Bio:</label>
+                    <input type="text" name="biography" value="{{user.biography}}">
+                    <label for="profile_pic">Profile Pic:</label>
+                    <input type="file" name="profile_pic">
+                    <button type="submit">Apply</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

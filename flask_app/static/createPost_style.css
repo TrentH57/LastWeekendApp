@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    overflow-y: hidden;
+}
+#container{
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    background-image: url("https://i.ibb.co/hL5924J/mountains.jpg");
+    background-size: cover;
+    background-position: top;
+
+}
+p{
+    color: red;
+    display: block;
+}
+label, input{
+    display: block;
+}
+input{
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+#wrapper{
+    width: 35%;
+    position: relative;
+    top: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    backdrop-filter: blur(15px);
+    /* justify-content: space-between; */
+}
+.flash{
+    color: red;
+}
+#createpost{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+button{
+    background-color: transparent;
+    border: solid black 1px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px;
+}
+
+
